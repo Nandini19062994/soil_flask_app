@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soil Quality Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #5DADE2;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #5DADE2;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3498DB;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2E4053;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌱 Soil Quality Predictor</h2>
+        <form action="/predict" method="post">
+            <label>pH Level:</label>
+            <input type="text" name="ph">
+
+            <label>Humidity (%):</label>
+            <input type="text" name="humidity">
+
+            <label>Nitrogen (mg/kg):</label>
+            <input type="text" name="nitrogen">
+
+            <label>Phosphorus (mg/kg):</label>
+            <input type="text" name="phosphorus">
+
+            <label>Potassium (mg/kg):</label>
+            <input type="text" name="potassium">
+
+            <label>Temperature (°C):</label>
+            <input type="text" name="temperature">
+
+            <input type="submit" value="Predict Quality">
+        </form>
+        <div class="result">{{ prediction_text }}</div>
+    </div>
+</body>
+</html>
